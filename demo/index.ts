@@ -1,5 +1,7 @@
 /// <reference path="../tsd.d.ts" />
 import {Component, View, bootstrap, NgClass} from 'angular2/angular2';
+// load chart.js
+import * as chart from 'chart.js';
 
 import {Ng2ChartsConfig, Ng2ChartsTheme} from '../components/index';
 

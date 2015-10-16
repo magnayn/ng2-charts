@@ -108,9 +108,15 @@ var config = {
         loader: 'ts',
         query: {
           ignoreDiagnostics: [
-            6053
-            // 2300, // 2300 -> Duplicate identifier
-            // 2309 // 2309 -> An export assignment cannot be used in a module with other exported elements.
+            6053,
+            // TS2305 -> Module 'ng' has no exported member
+            2305,
+            // TS2307 ->  Cannot find external module
+            2307,
+            // TS2300 -> Duplicate identifier
+            2300,
+            // TS2309 -> An export assignment cannot be used in a module with other exported elements.
+            2309
           ]
         },
         exclude: [
@@ -136,9 +142,6 @@ var config = {
       minChunks: Infinity,
       filename: 'angular2.js'
     }),
-    new TransferWebpackPlugin([
-      { from: 'components/external-lib' }
-    ]),
     new webpack.optimize.DedupePlugin({
       __isProduction: isProduction
     }),
