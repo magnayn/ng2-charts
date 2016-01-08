@@ -1,9 +1,10 @@
 /// <reference path="../../../tsd.d.ts" />
 
 import {
-  Component, View, EventEmitter,
-  CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass
-} from 'angular2/angular2';
+  Component, View, EventEmitter
+} from 'angular2/core';
+
+import {NgClass, NgFor, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
 
 import {charts} from '../../../components/index';
 
@@ -15,7 +16,7 @@ let template = require('./line-chart-demo.html');
 })
 @View({
   template: template,
-  directives: [charts, NgClass, CORE_DIRECTIVES, FORM_DIRECTIVES]
+  directives: [charts, NgClass, NgFor, CORE_DIRECTIVES, FORM_DIRECTIVES]
 })
 export class LineChartDemo {
 
@@ -24,12 +25,12 @@ export class LineChartDemo {
   }
 
   // lineChart
-  private lineChartData:Array<any> = [
+  private lineChartData = [
     [65, 59, 80, 81, 56, 55, 40],
     [28, 48, 40, 19, 86, 27, 90],
     [18, 48, 77, 9, 100, 27, 40]
   ];
-  private lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
   private lineChartSeries:Array<any> = ['Series A', 'Series B', 'Series C'];
   private lineChartOptions:any = {
     animation: false,
@@ -66,6 +67,7 @@ export class LineChartDemo {
   private lineChartType:string = 'Line';
 
   private randomize() {
+
     let _lineChartData = [];
     for (let i = 0; i < this.lineChartData.length; i++) {
       _lineChartData[i] = [];

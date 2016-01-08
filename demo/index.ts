@@ -1,5 +1,7 @@
 /// <reference path="../tsd.d.ts" />
-import {Component, View, bootstrap, NgClass} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
+import {bootstrap} from 'angular2/platform/browser';
+import {NgClass} from 'angular2/common';
 
 import {Ng2ChartsConfig, Ng2ChartsTheme} from '../components/index';
 
@@ -38,8 +40,8 @@ let gettingStarted = require('./getting-started.md');
     <div class="col-md-12 card card-block panel panel-default">
       <selection>
           <h1>ng2-charts available with:
-          <a class="btn btn-default btn-secondary btn-lg" [ng-class]="{active: isBs3}" href="./">Bootstrap 3</a>
-          <a class="btn btn-default btn-secondary btn-lg" [ng-class]="{active: !isBs3}" href="./index-bs4.html">Bootstrap 4</a>
+          <a class="btn btn-default btn-secondary btn-lg" [ngClass]="{active: isBs3}" href="./">Bootstrap 3</a>
+          <a class="btn btn-default btn-secondary btn-lg" [ngClass]="{active: !isBs3}" href="./index-bs4.html">Bootstrap 4</a>
           </h1>
       </selection>
     </div>
@@ -49,7 +51,6 @@ let gettingStarted = require('./getting-started.md');
     <charts-section class="col-md-12"></charts-section>
   </div>
 
-  </div>
   <footer class="footer">
     <div class="container">
       <p class="text-muted text-center"><a href="https://github.com/valor-software/ng2-charts">ng2-charts</a> is maintained by <a href="https://github.com/valor-software">valor-software</a>.</p>

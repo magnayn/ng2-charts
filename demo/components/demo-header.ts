@@ -1,5 +1,8 @@
 /// <reference path="../../tsd.d.ts" />
-import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
+import {Component, View
+} from 'angular2/core';
+import {NgFor} from 'angular2/common';
+import {bootstrap} from 'angular2/platform/browser';
 import {Collapse, dropdown, Ng2BootstrapConfig, Ng2BootstrapTheme} from 'ng2-bootstrap/ng2-bootstrap';
 
 let components = [
@@ -45,7 +48,7 @@ let template = `
           <li class="nav-item dropdown" dropdown>
             <a role="button" class="nav-link dropdown-toggle" dropdown-toggle>Directives <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li *ng-for="#comp of components">
+              <li *ngFor="#comp of components">
                <a class="dropdown-item" href="{{prefix}}#{{comp.href}}">{{comp.name}}</a>
               </li>
             </ul>
@@ -54,7 +57,7 @@ let template = `
       </nav>
       <nav class="visible-xs hidden-md-up">
         <ul class="nav nav-pills nav-stacked scrollable-menu" [collapse]="!isCollapsed" (click)="isCollapsed = !isCollapsed; true">
-          <li *ng-for="#comp of components" class="nav-item">
+          <li *ngFor="#comp of components" class="nav-item">
             <a class="dropdown-item" href="{{prefix}}#{{comp.href}}">{{comp.name}}</a>
           </li>
         </ul>

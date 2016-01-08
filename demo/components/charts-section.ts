@@ -1,6 +1,8 @@
 /// <reference path="../../tsd.d.ts" />
 
-import {Component, View, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, View} from 'angular2/core';
+
+import {CORE_DIRECTIVES} from 'angular2/common';
 
 import {tabs} from 'ng2-bootstrap/ng2-bootstrap';
 import {LineChartDemo} from './charts/line-chart-demo';
@@ -85,12 +87,12 @@ chartDesc.forEach(desc => {
         <div class="card card-block panel panel-default panel-body">
 
          <div class="row">
-          <div *ng-if="'${desc.heading}' == 'Line Chart' || '${desc.heading}' == 'Dynamic Chart'">
+          <div *ngIf="'${desc.heading}' == 'Line Chart' || '${desc.heading}' == 'Dynamic Chart'">
             <div class="col-md-12">
               <${desc.tag}></${desc.tag}>
             </div>
           </div>
-          <div *ng-if="'${desc.heading}' != 'Line Chart' && '${desc.heading}' != 'Dynamic Chart'">
+          <div *ngIf="'${desc.heading}' != 'Line Chart' && '${desc.heading}' != 'Dynamic Chart'">
             <div class="col-md-3"></div>
             <div class="col-md-6">
               <${desc.tag}></${desc.tag}>

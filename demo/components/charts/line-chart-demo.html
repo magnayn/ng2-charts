@@ -14,10 +14,10 @@
   <div class="col-md-6" style="margin-bottom: 10px;">
     <table class="table table-responsive table-condensed">
       <tr>
-        <th *ng-for="#label of lineChartLabels">{{label}}</th>
+        <th *ngFor="#label of lineChartLabels">{{label}}</th>
       </tr>
-      <tr *ng-for="#d of lineChartData">
-        <td *ng-for="#label of lineChartLabels; #j=index">{{d[j]}}</td>
+      <tr *ngFor="#d of lineChartData">
+        <td *ngFor="#z of d; #j=index">{{z}}</td>
       </tr>
     </table>
     <button (click)="randomize()">CLICK</button>

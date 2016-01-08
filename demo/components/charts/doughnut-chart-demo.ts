@@ -2,8 +2,9 @@
 
 import {
   Component, View, EventEmitter,
-  CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass
-} from 'angular2/angular2';
+} from 'angular2/core';
+
+import {NgClass, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
 
 import {charts} from '../../../components/index';
 

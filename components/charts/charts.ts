@@ -1,9 +1,10 @@
 import {
-  Component, View,
+  Component, View, Input,
   Directive, OnInit, OnDestroy,
-  EventEmitter, ElementRef,
-  CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass
-} from 'angular2/angular2';
+  EventEmitter, ElementRef
+} from 'angular2/core';
+
+import {NgClass, FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
 
 // import EventEmitter = ng.EventEmitter;
 
@@ -131,7 +132,7 @@ export class BaseChart implements OnInit, OnDestroy {
   constructor(private element:ElementRef) {
   }
 
-  onInit() {
+  ngOnInit() {
     this.ctx = this.element.nativeElement.children[0].getContext('2d');
     this.cvs = this.element.nativeElement.children[0];
     this.parent = this.element.nativeElement;
@@ -139,7 +140,7 @@ export class BaseChart implements OnInit, OnDestroy {
     this.initFlag = true;
   }
 
-  onDestroy() {
+  ngOnDestroy() {
     if (this.chart) {
       this.chart.destroy();
       this.chart = null;
@@ -161,11 +162,11 @@ export class BaseChart implements OnInit, OnDestroy {
     }
   }
 
-  private get chartType() {
+  get chartType() {
     return this._chartType;
   }
 
-  private set chartType(value) {
+  @Input('chart-type') set chartType(value) {
     this._chartType = value;
     if (this.initFlag && this._chartType && this._chartType.length > 0) {
       this.refresh();
@@ -272,7 +273,7 @@ export class BaseChart implements OnInit, OnDestroy {
 
   private refresh() {
 
-    this.onDestroy();
+    this.ngOnDestroy();
     let dataset:Array<any> = [];
 
     for (let i = 0; i < this.data.length; i++) {

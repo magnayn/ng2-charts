@@ -49,10 +49,11 @@ var config = {
   entry: {
     angular2: [
       // Angular 2 Deps
-      'zone.js',
+     // 'zone.js',
       'reflect-metadata',
-      'angular2/angular2',
-      'angular2/core'
+      'angular2/common',
+      'angular2/core',
+      'angular2/platform/browser'
     ],
     'angular2-charts': ['components'],
     'angular2-charts-demo': 'demo'
